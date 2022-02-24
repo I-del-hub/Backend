@@ -7,7 +7,7 @@ const app = express();
 
 // const connection = mongoose.connection;
 // connection.once("open", () => {
-//   console.log("MongoDb connected");
+//   console.log("MongoDb connected")
 // });
 
 //middleware
