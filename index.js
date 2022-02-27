@@ -4,7 +4,7 @@ const mongoose = require("mongoose");
 const app = express();
 
 
-//add blog model
+
 // const connection = mongoose.connection;
 // connection.once("open", () => {
 //   console.log("MongoDb connected")
