@@ -17,13 +17,13 @@ let checkToken = (req, res, next) => {
         next();
       }
     });
-  } else {
-    return res.json({
-      status: false,
-      msg: "Token is not provided",
-    });
-  }
-};
+//   } else {
+//     return res.json({
+//       status: false,
+//       msg: "Token is not provided",
+//     });
+//   }
+// };
 
 module.exports = {
   checkToken: checkToken,
