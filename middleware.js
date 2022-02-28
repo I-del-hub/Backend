@@ -12,11 +12,11 @@ let checkToken = (req, res, next) => {
           status: false,
           msg: "token is invalid",
         });
-      } else {
-        req.decoded = decoded;
-        next();
-      }
-    });
+    //   } else {
+    //     req.decoded = decoded;
+    //     next();
+    //   }
+    // });
   } else {
     return res.json({
       status: false,
