@@ -20,23 +20,23 @@ const upload = multer({
   },
 });
 
-router
-  .route("/add/coverImage/:id")
-  .patch(middleware.checkToken, upload.single("img"), (req, res) => {
-    BlogPost.findOneAndUpdate(
-      { _id: req.params.id },
-      {
-        $set: {
-          coverImage: req.file.path,
-        },
-      },
-      { new: true },
-      (err, result) => {
-        if (err) return res.json(err);
-        return res.json(result);
-      }
-    );
-  });
+// router
+//   .route("/add/coverImage/:id")
+//   .patch(middleware.checkToken, upload.single("img"), (req, res) => {
+//     BlogPost.findOneAndUpdate(
+//       { _id: req.params.id },
+//       {
+//         $set: {
+//           coverImage: req.file.path,
+//         },
+//       },
+//       { new: true },
+//       (err, result) => {
+//         if (err) return res.json(err);
+//         return res.json(result);
+//       }
+//     );
+//   });
 router.route("/Add").post(middleware.checkToken, (req, res) => {
   const blogpost = BlogPost({
     username: req.decoded.username,
