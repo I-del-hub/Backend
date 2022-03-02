@@ -53,19 +53,19 @@ router.route("/Add").post(middleware.checkToken, (req, res) => {
     });
 });
 
-// router.route("/getOwnBlog").get(middleware.checkToken, (req, res) => {
-//   BlogPost.find({ username: req.decoded.username }, (err, result) => {
-//     if (err) return res.json(err);
-//     return res.json({ data: result });
-//   });
-// });
-
-router.route("/getOtherBlog").get(middleware.checkToken, (req, res) => {
-  BlogPost.find({ username: { $ne: req.decoded.username } }, (err, result) => {
+router.route("/getOwnBlog").get(middleware.checkToken, (req, res) => {
+  BlogPost.find({ username: req.decoded.username }, (err, result) => {
     if (err) return res.json(err);
     return res.json({ data: result });
   });
 });
+
+// router.route("/getOtherBlog").get(middleware.checkToken, (req, res) => {
+//   BlogPost.find({ username: { $ne: req.decoded.username } }, (err, result) => {
+//     if (err) return res.json(err);
+//     return res.json({ data: result });
+//   });
+// });
 
 router.route("/delete/:id").delete(middleware.checkToken, (req, res) => {
   console.log('hello');
