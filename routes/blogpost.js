@@ -67,21 +67,21 @@ router.route("/getOtherBlog").get(middleware.checkToken, (req, res) => {
   });
 });
 
-// router.route("/delete/:id").delete(middleware.checkToken, (req, res) => {
-//   console.log('hello');
-//   BlogPost.findOneAndDelete(
-//     {
-//       $and: [{ username: req.decoded.username }, { _id: req.params.id }],
-//     },
-//     (err, result) => {
-//       if (err) return res.json(err);
-//       else if (result) {
-//         console.log(result);
-//         return res.json("Blog deleted");
-//       }
-//       return res.json("Blog not deleted");
-//     }
-//   );
-// });
+router.route("/delete/:id").delete(middleware.checkToken, (req, res) => {
+  console.log('hello');
+  BlogPost.findOneAndDelete(
+    {
+      $and: [{ username: req.decoded.username }, { _id: req.params.id }],
+    },
+    (err, result) => {
+      if (err) return res.json(err);
+      else if (result) {
+        console.log(result);
+        return res.json("Blog deleted");
+      }
+      return res.json("Blog not deleted");
+    }
+  );
+});
 
 module.exports = router;
