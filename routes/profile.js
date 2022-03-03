@@ -21,13 +21,13 @@ const fileFilter = (req, file, cb) => {
   }
 };
 
-const upload = multer({
-  storage: storage,
-  limits: {
-    fileSize: 1024 * 1024 * 6,
-  },
-  // fileFilter: fileFilter,
-});
+// const upload = multer({
+//   storage: storage,
+//   limits: {
+//     fileSize: 1024 * 1024 * 6,
+//   },
+//   // fileFilter: fileFilter,
+// });
 
 //adding and update profile image
 router
