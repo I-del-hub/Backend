@@ -21,36 +21,36 @@ const fileFilter = (req, file, cb) => {
   }
 };
 
-// const upload = multer({
-//   storage: storage,
-//   limits: {
-//     fileSize: 1024 * 1024 * 6,
-//   },
-//   // fileFilter: fileFilter,
-// });
+const upload = multer({
+  storage: storage,
+  limits: {
+    fileSize: 1024 * 1024 * 6,
+  },
+  // fileFilter: fileFilter,
+});
 
 //adding and update profile image
-router
-  .route("/add/image")
-  .patch(middleware.checkToken, upload.single("img"), (req, res) => {
-    Profile.findOneAndUpdate(
-      { username: req.decoded.username },
-      {
-        $set: {
-          img: req.file.path,
-        },
-      },
-      { new: true },
-      (err, profile) => {
-        if (err) return res.status(500).send(err);
-        const response = {
-          message: "image added successfully updated",
-          data: profile,
-        };
-        return res.status(200).send(response);
-      }
-    );
-  });
+// router
+//   .route("/add/image")
+//   .patch(middleware.checkToken, upload.single("img"), (req, res) => {
+//     Profile.findOneAndUpdate(
+//       { username: req.decoded.username },
+//       {
+//         $set: {
+//           img: req.file.path,
+//         },
+//       },
+//       { new: true },
+//       (err, profile) => {
+//         if (err) return res.status(500).send(err);
+//         const response = {
+//           message: "image added successfully updated",
+//           data: profile,
+//         };
+//         return res.status(200).send(response);
+//       }
+//     );
+//   });
 
 router.route("/add").post(middleware.checkToken, (req, res) => {
   const profile = Profile({
