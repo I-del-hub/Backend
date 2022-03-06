@@ -5,15 +5,15 @@ const jwt = require("jsonwebtoken");
 let middleware = require("../middleware");
 const router = express.Router();
 
-router.route("/:username").get(middleware.checkToken, (req, res) => {
-  User.findOne({ username: req.params.username }, (err, result) => {
-    if (err) return res.status(500).json({ msg: err });
-    return res.json({
-      data: result,
-      username: req.params.username,
-    });
-  });
-});
+// router.route("/:username").get(middleware.checkToken, (req, res) => {
+//   User.findOne({ username: req.params.username }, (err, result) => {
+//     if (err) return res.status(500).json({ msg: err });
+//     return res.json({
+//       data: result,
+//       username: req.params.username,
+//     });
+//   });
+// });
 
 router.route("/checkusername/:username").get((req, res) => {
   User.findOne({ username: req.params.username }, (err, result) => {
