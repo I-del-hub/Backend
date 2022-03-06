@@ -29,25 +29,25 @@ router.route("/checkusername/:username").get((req, res) => {
   });
 });
 
-router.route("/login").post((req, res) => {
-  User.findOne({ username: req.body.username }, (err, result) => {
-    if (err) return res.status(500).json({ msg: err });
-    if (result === null) {
-      return res.status(403).json("Username incorrect");
-    }
-    if (result.password === req.body.password) {
-      // here we implement the JWT token functionality
-      let token = jwt.sign({ username: req.body.username }, config.key, {});
+// router.route("/login").post((req, res) => {
+//   User.findOne({ username: req.body.username }, (err, result) => {
+//     if (err) return res.status(500).json({ msg: err });
+//     if (result === null) {
+//       return res.status(403).json("Username incorrect");
+//     }
+//     if (result.password === req.body.password) {
+//       // here we implement the JWT token functionality
+//       let token = jwt.sign({ username: req.body.username }, config.key, {});
 
-      res.json({
-        token: token,
-        msg: "success",
-      });
-    } else {
-      res.status(403).json("password is incorrect");
-    }
-  });
-});
+//       res.json({
+//         token: token,
+//         msg: "success",
+//       });
+//     } else {
+//       res.status(403).json("password is incorrect");
+//     }
+//   });
+// });
 
 router.route("/register").post((req, res) => {
   console.log("inside the register");
