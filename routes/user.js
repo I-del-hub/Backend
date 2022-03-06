@@ -49,23 +49,23 @@ router.route("/login").post((req, res) => {
   });
 });
 
-// router.route("/register").post((req, res) => {
-//   console.log("inside the register");
-//   const user = new User({
-//     username: req.body.username,
-//     password: req.body.password,
-//     email: req.body.email,
-//   });
-//   user
-//     .save()
-//     .then(() => {
-//       console.log("user registered");
-//       res.status(200).json({ msg: "User Successfully Registered" });
-//     })
-//     .catch((err) => {
-//       res.status(403).json({ msg: err });
-//     });
-// });
+router.route("/register").post((req, res) => {
+  console.log("inside the register");
+  const user = new User({
+    username: req.body.username,
+    password: req.body.password,
+    email: req.body.email,
+  });
+  user
+    .save()
+    .then(() => {
+      console.log("user registered");
+      res.status(200).json({ msg: "User Successfully Registered" });
+    })
+    .catch((err) => {
+      res.status(403).json({ msg: err });
+    });
+});
 
 router.route("/update/:username").patch((req, res) => {
   console.log(req.params.username);
